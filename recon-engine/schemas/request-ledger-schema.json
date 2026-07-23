@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Request Ledger Entry",
+  "description": "Record in request-ledger.csv.",
+  "type": "object",
+  "required": [
+    "method",
+    "observed_at",
+    "timestamp",
+    "peer",
+    "resource",
+    "result",
+    "sequence",
+    "service"
+  ],
+  "properties": {
+    "method": {
+      "type": "string",
+      "description": "HTTP method (GET, POST, etc.) or special signal type (EMPTY, CAPS, ROUTE)."
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the request was observed (ISO 8601)."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the request event (may equal observed_at)."
+    },
+    "peer": {
+      "type": "string",
+      "description": "Remote peer address (IP or hostname)."
+    },
+    "resource": {
+      "type": "string",
+      "description": "Requested resource (e.g., '/', '/robots.txt', or 'line' for signal probes)."
+    },
+    "result": {
+      "type": "integer",
+      "description": "Numeric result code (e.g., HTTP status, or 400 for error signals)."
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monotonically increasing sequence number for the run."
+    },
+    "service": {
+      "type": "string",
+      "description": "Service category (e.g., 'http', 'signal')."
+    }
+  },
+  "additionalProperties": false
+}

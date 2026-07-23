@@ -1,0 +1,129 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Run Summary",
+  "description": "Summary of a recon engine execution.",
+  "type": "object",
+  "required": [
+    "start_time",
+    "target",
+    "scope_file",
+    "output_dir",
+    "rate_limit",
+    "total_requests",
+    "results"
+  ],
+  "properties": {
+    "start_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the scan started."
+    },
+    "target": {
+      "type": "string",
+      "description": "Primary target (IP or hostname)."
+    },
+    "scope_file": {
+      "type": "string",
+      "description": "Absolute path to the scope file used for the scan."
+    },
+    "output_dir": {
+      "type": "string",
+      "description": "Root directory for all run outputs (relative or absolute)."
+    },
+    "rate_limit": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Maximum requests per second allowed."
+    },
+    "total_requests": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total number of requests sent during the run."
+    },
+    "results": {
+      "type": "object",
+      "required": ["http_wildcard", "line", "flag"],
+      "properties": {
+        "http_wildcard": {
+          "type": "object",
+          "required": ["port", "baseline", "is_wildcard"],
+          "properties": {
+            "port": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 65535,
+              "description": "Port where the wildcard HTTP service was found."
+            },
+            "baseline": {
+              "type": "object",
+              "required": ["status", "length", "body_hash"],
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "description": "HTTP status code of the baseline response."
+                },
+                "length": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "Content length of the baseline response."
+                },
+                "body_hash": {
+                  "type": "string",
+                  "description": "SHA‑256 hash of the baseline response body."
+                }
+              },
+              "additionalProperties": false
+            },
+            "is_wildcard": {
+              "type": "boolean",
+              "description": "True if the response is considered a wildcard (default catch‑all)."
+            }
+          },
+          "additionalProperties": false
+        },
+        "line": {
+          "type": "object",
+          "required": ["port", "line", "raw_file"],
+          "properties": {
+            "port": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 65535,
+              "description": "Port where the line‑based service was found."
+            },
+            "line": {
+              "type": "string",
+              "description": "The exact banner line received from the service."
+            },
+            "raw_file": {
+              "type": "string",
+              "description": "Path to the raw banner capture file."
+            }
+          },
+          "additionalProperties": false
+        },
+        "flag": {
+          "type": "object",
+          "required": ["value", "source", "raw_file"],
+          "properties": {
+            "value": {
+              "type": "string",
+              "description": "The flag value discovered."
+            },
+            "source": {
+              "type": "string",
+              "description": "Origin of the flag (e.g., endpoint or file with authentication)."
+            },
+            "raw_file": {
+              "type": "string",
+              "description": "Path to the raw HTTP response or file that contained the flag."
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

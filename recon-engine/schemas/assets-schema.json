@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Normalized Asset",
+  "description": "A record in run/normalized/assets.jsonl",
+  "type": "object",
+  "oneOf": [
+    {
+      "description": "Network service asset (port, service, banner etc.)",
+      "required": [
+        "observed_at",
+        "target",
+        "port",
+        "protocol",
+        "service",
+        "source_tool",
+        "source_file",
+        "confidence"
+      ],
+      "properties": {
+        "observed_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp when the asset was recorded."
+        },
+        "target": {
+          "type": "string",
+          "description": "Target hostname or IP address."
+        },
+        "port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535,
+          "description": "Network port number."
+        },
+        "protocol": {
+          "type": "string",
+          "description": "Transport protocol (e.g., 'tcp', 'udp')."
+        },
+        "service": {
+          "type": "string",
+          "description": "Service name or fingerprint (e.g., 'http', 'unknown-line')."
+        },
+        "source_tool": {
+          "type": "string",
+          "description": "Name of the engine module that discovered this asset."
+        },
+        "source_file": {
+          "type": "string",
+          "description": "Path to the raw output file that provided the evidence."
+        },
+        "confidence": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "description": "Confidence level in the asset detection."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional context (e.g., banner line)."
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "description": "Flag asset (credential or secret found)",
+      "required": [
+        "observed_at",
+        "type",
+        "value",
+        "source",
+        "raw_file"
+      ],
+      "properties": {
+        "observed_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp when the flag was recorded."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["flag"],
+          "description": "Must be 'flag' to distinguish this asset type."
+        },
+        "value": {
+          "type": "string",
+          "description": "The flag value itself."
+        },
+        "source": {
+          "type": "string",
+          "description": "Where the flag was found (e.g., endpoint or file path)."
+        },
+        "raw_file": {
+          "type": "string",
+          "description": "Path to the raw HTTP response or file that contained the flag."
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}
