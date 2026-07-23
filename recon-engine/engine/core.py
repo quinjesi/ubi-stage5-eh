@@ -299,7 +299,7 @@ def run(target, scope_path, output_dir, rate):
                         f.write(http_result.get("raw", ""))
             else:
                 if wildcard_info["is_wildcard"]:
-                    print("    [⚠] Endpoint appears to be a wildcard – will try discovered vhost later")
+                    print("    [!] Endpoint appears to be a wildcard ")
                     results["http_wildcard"] = {"port": 18231, "baseline": wildcard_info["baseline"], "is_wildcard": True}
                     baseline_raw = probe_http(target, 18231, scope, path="/")
                     if baseline_raw and not baseline_raw.get("error"):

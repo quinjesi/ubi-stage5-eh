@@ -1,0 +1,8 @@
+HTTP/1.0 200 OK
+Server: TransitGateway/2.4 
+Date: Thu, 23 Jul 2026 09:40:20 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 47
+X-Runtime-Profile: P6
+
+Transit edge online. Route is not provisioned.

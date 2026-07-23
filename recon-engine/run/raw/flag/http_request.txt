@@ -1,0 +1,6 @@
+GET /user.txt HTTP/1.1
+Host: console-41de75c.keystone.local
+Authorization: Basic cmV2aWV3ZXIyZjpWMW0zM3ZSekZxaDgtUlFxb1Niag==
+X-Route-Key: ee26675948b9a4e2
+Connection: close
+

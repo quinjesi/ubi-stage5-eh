@@ -1,0 +1,29 @@
+{
+  "start_time": "2026-07-23T09:40:20.974199+00:00",
+  "target": "127.0.0.1",
+  "scope_file": "/home/sstarr/Documents/ubi-stage5-eh/lab-runtime/scope.csv",
+  "output_dir": "run",
+  "rate_limit": 25,
+  "total_requests": 11,
+  "results": {
+    "http_wildcard": {
+      "port": 18231,
+      "baseline": {
+        "status": 200,
+        "length": 47,
+        "body_hash": "5607108c7ac33b0e71611e63d8c8e747618dd00c7e315c8a95b2601172785783"
+      },
+      "is_wildcard": true
+    },
+    "line": {
+      "port": 23420,
+      "line": "RLY/2 READY profile=dynamic",
+      "raw_file": "run/raw/line/23420_banner.txt"
+    },
+    "flag": {
+      "value": "UBI-EH-A1-0594BF17982E535B41DD46B4",
+      "source": "/user.txt with auth",
+      "raw_file": "run/raw/flag/http_response.txt"
+    }
+  }
+}

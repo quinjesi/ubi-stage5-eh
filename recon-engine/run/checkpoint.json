@@ -1,0 +1,11 @@
+{
+  "completed_steps": [
+    "line_discovery",
+    "http_18231",
+    "http_vhost",
+    "line_23420"
+  ],
+  "discovered_vhost": "console-41de75c.keystone.local",
+  "route_proof": "ee26675948b9a4e2",
+  "total_requests": 11
+}
