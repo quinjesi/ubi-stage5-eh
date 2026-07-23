@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "project_id": "EH-A1",
+  "variant": "D6",
+  "candidate_binding": "UBI-2026-0300",
+  "assigned_pack": {
+    "file_name": "ethical-hacking-stage-5-shared-b1.tar.gz",
+    "sha256": "984b531bec2214f217975dbbe9bab1afc14a3eac021df5e24f61d99622b6259e",
+    "manifest_signature": "31e6b91c01cf5e6b2df67d1deffc008dbedc9c02532341a761b7aebd928cbd2d",
+    "verified_before_use": true
+  },
+  "commit": "git add ."
+  	    "git commit -m 'Added manifest'"
+	    "git push",
+  "supported_environment": {
+    "os": "Kali GNU/Linux 6.18.12+kali-amd64",
+    "cpu": "x86_64",
+    "memory_gb": 5,
+    "tool_versions": {"Python 3.13.12"}
+  },
+  "commands": {
+    "provision": "python3 lab/evidence/local_lab.py --marker UBI-A5-811A227F3A50 --output lab-runtime",
+    "build": "true",
+    "test": "pytest tests -v",
+    "clean": "rm -rf run/"
+  },
+  "results": {
+    "public_tests": { "passed": 26, "failed": 0, "report": " /recon-engine/test-results.xml" },
+    "runtime_seconds": 9.66,
+    "peak_memory_mb": 38.93,
+    "output_hashes": {}
+  },
+  "inputs": ["/lab-runtime/scope.csv"],
+  "outputs": ["/run/checkpoint.json"  "/run/errors.jsonl"  "/run/report.html"  "/run/run.json", "/run/normalized/assets.jsonl"],
+  "manual_preconditions": ["Lab must be running before engine", "Folder structure must be accurate"],
+  "known_limitations": ["No IPv6 support"]
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "observed_at": "2026-07-23T09:40:20.973651+00:00",
+    "target": "127.0.0.1",
+    "port": 23420,
+    "protocol": "tcp",
+    "service": "unknown-line",
+    "source_tool": "engine.socket",
+    "source_file": "run/raw/line/23420_banner.txt",
+    "confidence": "medium",
+    "notes": "Line: RLY/2 READY profile=dynamic"
+  },
+  {
+    "observed_at": "2026-07-23T09:40:20.973651+00:00",
+    "type": "flag",
+    "value": "UBI-EH-A1-0594BF17982E535B41DD46B4",
+    "source": "/user.txt with auth",
+    "raw_file": "run/raw/flag/http_response.txt"
+  }
+]
