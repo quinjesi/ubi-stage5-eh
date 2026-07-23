@@ -110,7 +110,7 @@ def parse_httpx_json(raw: Union[str, dict]) -> List[Dict[str, Any]]:
         host = parsed.hostname
         port = parsed.port
         if port is None:
-            port = 80 if scheme == "https" else 443
+            port = 443 if scheme == "https" else 80
         records.append({
             "scheme": scheme,
             "host": host,

@@ -1,10 +1,10 @@
-#!/usr/bin/env python3
-#Command-line interface for the recon engine. Parses arguments and hands control over to the core engine.
-
+!/usr/bin/env python3
+#Command-line interface for the Recon Engine. Parses arguments and hands control over to the core engine.
 
 import argparse
 import sys
 from pathlib import Path
+
 
 from engine.core import run
 
@@ -40,7 +40,6 @@ def parse_arguments():
 
 
 def main():
-    """Main entry point."""
     args = parse_arguments()
 
     output_dir = Path(args.output)
@@ -49,6 +48,7 @@ def main():
     scope_path = Path(args.scope)
     if not scope_path.is_file():
         print(f"ERROR: Scope file not found: {scope_path}", file=sys.stderr)
+        sys.exit(1)
 
     if not args.target:
         print("ERROR: --target cannot be empty", file=sys.stderr)
