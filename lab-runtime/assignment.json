@@ -1,0 +1,15 @@
+{
+  "authorized_ports": [
+    18231,
+    23420
+  ],
+  "bind_address": "127.0.0.1",
+  "entry_url": "http://127.0.0.1:18231/",
+  "marker": "UBI-A5-811A227F3A50",
+  "maximum_rate_per_second": 25,
+  "profile": "P6",
+  "request_budget": 240,
+  "runtime_id": "aa1ebad8cdc48a97",
+  "schema_version": "1.0",
+  "started_at": "2026-07-23T07:51:15.204313Z"
+}
