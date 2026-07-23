@@ -1,4 +1,4 @@
-!/usr/bin/env python3
+#!/usr/bin/env python3
 #Command-line interface for the Recon Engine. Parses arguments and hands control over to the core engine.
 
 import argparse
